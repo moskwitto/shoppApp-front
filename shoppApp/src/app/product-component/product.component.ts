@@ -8,56 +8,51 @@ import { NgFor, CommonModule } from '@angular/common';
   templateUrl: './product.component.html',
   standalone: true,
   styleUrls: ['./product.component.css'],
+  imports: [CommonModule, NgFor],
 })
-export class ProductComponent{
+export class ProductComponent implements OnInit{
   message: string = 'Hello World';
-  protected product: ProductModel = {} as ProductModel;
+  protected products: ProductModel[] = [];
   productName: string = '';
   
   constructor() { 
-    this.#fetchProductsByID(1).then(data => {
-      this.product = data;
-      this.productName = this.product.productName;
-      console.log(this.productName);
-    });  
-
-    // this.#fetchProducts().then(data => {    
-    //   console.log(data);
-    // });
-
-    this.#fetchProductsByCategoryName('Beverage').then(data => { 
-      console.log('--------Bevarages---------');   
-      console.log(data);
+    this.#fetchProductsByID(3).then(data => {
+      this.products.push(data);
     });
+
+    this.#fetchProducts().then((data=> {
+      this.products = data;
+    }));
+
   }
+
+  ngOnInit(): void {}
+
 
 
   async #fetchProductsByID($id: number){
-    const res = await fetch('http://localhost:8000/api/product/1');
+    const res = await fetch('http://localhost:8000/api/product/'+$id);
     const data: ProductModel = await res.json();
-    console.log(data);
     return data as ProductModel;
   }
 
   async #fetchProducts(){
     const res = await fetch('http://localhost:8000/api/products');
-    const data: ProductModel= await res.json();
-    console.log(data);
-    return data as ProductModel;
+    const data: ProductModel[]= await res.json();
+    return data as ProductModel[];
   }
 
   async #fetchProductsByCategory($categoryID: number){
     const res = await fetch('http://localhost:8000/api/products/category/1');
     const data: ProductModel = await res.json();
-    console.log(data);
     return data as ProductModel;
   }
 
   async #fetchProductsByCategoryName($categoryName: string){
     const res = await fetch('http://localhost:8000/api/getProductsByCategoryName/'+$categoryName); 
     const data: ProductModel = await res.json();
-    console.log(data);
     return data as ProductModel;
   }
+  
 
 }
