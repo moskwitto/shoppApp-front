@@ -17,7 +17,7 @@ export const routes: Routes = [
     { path: 'update/:id', component: ProductComponent },
     { path: 'seller', component: SellerComponent },
     { path: 'seller/:id', component: SellerComponent }, 
-    { path: 'delete/:id', component: SellerComponent },
+    { path: 'delete/:deleteID', component: ProductComponent },
     {path: 'getProductsByName/:productName', component: ProductComponent},
 
   // other routes...

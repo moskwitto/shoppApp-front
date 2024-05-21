@@ -25,6 +25,7 @@ export class SellerComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute) {}
 
+  //parses the route url and calls required functions
   async ngOnInit(){
     const categoriesArray = await this.#fetchCategories();
     categoriesArray.forEach(category => {
@@ -47,6 +48,7 @@ export class SellerComponent implements OnInit {
     });
   }
 
+  //opens the modal for editing the product==> product and category models are passed
    OpenDialog(product: ProductModel,categoriesArray: CategoryModel[]): void {
     this.dialog.open(ModalComponent, {
       height: '400px',
@@ -66,11 +68,14 @@ export class SellerComponent implements OnInit {
     console.log(productID);
    }
 
+
+//fetches all categories
   async #fetchCategories(){
     const res = await fetch('http://localhost:8000/api/categories');
     const data = await res.json();
     return data as CategoryModel[];
   }
+  //fetches products by vendor id
   async #fetchVendorByID($id: number){
     const res = await fetch('http://localhost:8000/api/getProductsByVendor/'+$id);
     const data = await res.json();
@@ -78,32 +83,24 @@ export class SellerComponent implements OnInit {
   }
 
 
+  //fetches all products: Default function if no vendor id is passed
   async #fetchProducts(){
     const res = await fetch('http://localhost:8000/api/products');
     const data = await res.json();
     return data as ProductModel[];
   }
 
-
+//Deletes product by vendor id
   async #deleteProduct(id: number) {
     const res = await fetch(`http://localhost:8000/api/deleteProduct/${id}`, {
       method: 'DELETE'
     });
     const data = await res.json();
-    return data as ProductModel;
+    console.log(data);
+    return data ;
   }
 
-  async #updateProduct(product: ProductModel) {
-    const res = await fetch(`http://localhost:8000/api/updateProduct/${product.productID}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(product)
-    });
-    const data = await res.json();
-    return data as ProductModel;
-  }
+  //gets content of search bar and redirects to the seller page with the id
   search(): number{
     const sellerID=document.getElementById("searchID") as HTMLInputElement;
     const id = sellerID.value;
@@ -114,7 +111,7 @@ export class SellerComponent implements OnInit {
     return parseInt(id);
 
   }
-
+//opens a new window with the image for preview
   showImagePopup(imageUrl: string) {
     const popup = window.open(imageUrl, 'Image Popup', 'width=600,height=400');
     popup?.focus();

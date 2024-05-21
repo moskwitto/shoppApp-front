@@ -4,6 +4,7 @@ import { ProductModel } from '../models/productModel';
 import { NgFor, CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { response } from 'express';
 
 @Component({
   selector: 'app-product',
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit{
       const id = params['id'];
       const name = params['productName'];
       const category= params['category'];
+      const deleteID = params['deleteID'];
 
       if (category) {
         this.#fetchProductsByCategoryName(category).then(data => { 
@@ -32,6 +34,13 @@ export class ProductComponent implements OnInit{
       } 
     else if (name) {       
       this.#fetchProductsByProductName(name).then(data => { this.products = data; });
+    }
+    else if(deleteID){
+      this.#deleteProduct(parseInt(deleteID)).then(() => {
+        this.#fetchProducts().then(response=> {
+          console.log(response);
+        });
+      });
     }
       else {
         this.#fetchProducts().then(data => { this.products = data; });
@@ -65,6 +74,11 @@ export class ProductComponent implements OnInit{
     const res = await fetch('http://localhost:8000/api/getProductsByCategoryName/'+$categoryName); 
     const data: ProductModel []= await res.json();
     return data as ProductModel[];
+  }
+
+  async #deleteProduct($id: number){
+    fetch('http://localhost:8000/api/delete/'+$id);
+    
   }
   
 
