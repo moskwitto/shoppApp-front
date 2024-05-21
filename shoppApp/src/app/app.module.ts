@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductComponent } from './product-component/product.component';
+import { SellerComponent } from './seller/seller.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    ProductComponent,
+    SellerComponent
+  ],
   imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'product', component: ProductComponent },
+      { path: 'seller', component: SellerComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
-  
 })
 export class AppModule { }

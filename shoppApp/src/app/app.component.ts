@@ -5,12 +5,12 @@ import {HomeComponent} from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductComponent } from './product-component/product.component';
 import { ProductDetailComponent } from './Pages/product-detail/product-detail.component';
-
+import { SellerComponent } from './seller/seller.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent,NavbarComponent, FooterComponent, ProductComponent, ProductDetailComponent],
+  imports: [RouterOutlet, HomeComponent,NavbarComponent, FooterComponent, ProductComponent, ProductDetailComponent,SellerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

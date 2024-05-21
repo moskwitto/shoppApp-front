@@ -6,5 +6,6 @@ export interface ProductModel {
     stockAmount: number;
     vendorID: number;
     productDescription: string;
+    productImage: string;
   
 }
