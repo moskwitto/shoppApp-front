@@ -1,0 +1,12 @@
+<!-- login.component.html -->
+<div class="login-container">
+  <div class="login-box">
+    <form (ngSubmit)="onSubmit()">
+      <h2>Login</h2>
+      <input type="email" [(ngModel)]="model.email" name="email" required placeholder="Email">
+      <input type="password" [(ngModel)]="model.password" name="password" required placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+    <button (click)="ToRegister()" class="register-button">Register</button>
+  </div>
+</div>
