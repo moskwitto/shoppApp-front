@@ -27,7 +27,7 @@ export class ModalComponent implements OnInit{
       this.product = data;
     });
     this.getCategories().then(categories => {
-      this.categoriesArray.push(...categories);
+      this.categoriesArray = categories;
     });
     
   }
