@@ -13,7 +13,7 @@ export class ProductService {
   }
 
   getProductById(id: number) {
-    return this.http.get<ProductModel>(`http://localhost:8000/api/product/${id}`);
+    return this.http.get<ProductModel[]>(`http://localhost:8000/api/product/${id}`);
   }
 
   getProductsByCategory(categoryId: number) {

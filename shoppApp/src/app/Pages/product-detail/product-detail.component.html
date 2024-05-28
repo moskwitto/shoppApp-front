@@ -1,19 +1,19 @@
 <div>
-    <div *ngFor="let product of productDetail">
-        <h1 style="margin-left: 50px;">{{product.productName}}</h1>
+    <div *ngFor="let product of products">
+        <h1 style="margin-left: 50px;">{{ product.productName }}</h1>
         <div class="container">
             <div class="row"> 
                 <div class="col-md-6">
-                    <img src="{{product.homeImage}}" alt="Product Image" class="img-fluid">
+                    <img src="{{ product.productImage }}" alt="Product Image" class="img-fluid">
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <h2>{{product.productName}}</h2>
-                        <h3>Price: ${{product.price}}.00</h3>
-                        <p>{{product.productDescription}}</p>
-                        <p>Number of items in stock: {{product.stockAmount}}</p>
+                        <h2>{{ product.productName }}</h2>
+                        <h3>Price: ${{ product.price }}.00</h3>
+                        <p>{{ product.productDescription }}</p>
+                        <p>Number of items in stock: {{ product.stockAmount }}</p>
                         <a routerLink="/" class="btn btn-primary" style="margin-right: 8px;">Add to Cart</a>
-                        <a routerLink="/Pages/product-detail/{{product.id}}/Cart" class="btn btn-outline-success">Buy Now</a>
+                        <a routerLink="/Pages/product-detail/{{ product.productID }}/Cart" class="btn btn-outline-success">Buy Now</a>
                     </div>
                 </div>
             </div>

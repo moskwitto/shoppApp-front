@@ -49,11 +49,11 @@ export class SellerComponent implements OnInit {
   }
 
   //opens the modal for editing the product==> product and category models are passed
-   OpenDialog(product: ProductModel,categoriesArray: CategoryModel[]): void {
+   OpenDialog(productID: number): void {
     this.dialog.open(ModalComponent, {
       height: '400px',
       width: '600px',
-      data: { product: product,category: categoriesArray},
+      data: { productID: productID},
       position: {top: '0', left: '0'},
       hasBackdrop: true
     });

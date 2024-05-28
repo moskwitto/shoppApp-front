@@ -14,26 +14,32 @@ import { NgFor } from '@angular/common';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent implements OnInit{
-  product: ProductModel;
+  product: ProductModel = {} as ProductModel;
   categoriesArray: CategoryModel[] = [];
 
   //Constructor: Initializes the product and category array
   //The product and category array are passed from the seller component
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { product: ProductModel, category: CategoryModel[]},
+    @Inject(MAT_DIALOG_DATA) public data: { productID: number},
     private dialog: MatDialog
   ) { 
-    this.product = data.product;
-    this.categoriesArray= data.category; 
-    console.log('In Modal: category'+this.categoriesArray[this.product.productID].commissionPercentage);
-    console.log('In Modal: Product'+this.product);
-    console.log('In Modal: Product Name - ' + this.product.productName);
-    console.log('In Modal: Product ID - ' + this.product.productID);
-    console.log('In Modal: Product Price - ' + this.product.price);
-    console.log('In Modal: Product Category - ' + this.product.categoryID);
+    this.getProduct().then(data => {
+      this.product = data;
+    });
+    this.getCategories().then(categories => {
+      this.categoriesArray.push(...categories);
+    });
     
   }
 
+  async getProduct(){
+    const res = await fetch('http://localhost:8000/api/product/'+this.data.productID);
+    const data: ProductModel = await res.json();
+    return data as ProductModel;
+  }
+  getCategories(){
+    return fetch('http://localhost:8000/api/categories').then(response => response.json());
+  }
   //Closes the dialog: No action by user
   closeDialog(){
     this.dialog.closeAll();
@@ -70,7 +76,6 @@ export class ModalComponent implements OnInit{
         method: 'POST',
         body: JSON.stringify(product),
         headers: {
-          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
           
         }

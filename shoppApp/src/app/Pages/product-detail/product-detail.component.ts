@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductDetailService, ProductDetailResponse } from '../../services/product-detail.service';
 import { NgFor, CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProductModel } from '../../models/productModel';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,14 +15,32 @@ import { RouterLink } from '@angular/router';
 
 })
 export class ProductDetailComponent implements OnInit{
-  constructor (private productDetailService: ProductDetailService) {}
+  constructor (private productDetailService: ProductDetailService, private route:ActivatedRoute) {}
 
   productDetail!: ProductDetailResponse[];
-  
+  productID: number=1;
+  products: ProductModel[] = [];
+ 
   ngOnInit() {
-    this.getProductDetail();
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.productID = id;
+
+      if(id) {
+        this.getProduct().then(data => {
+          console.log(data);
+          this.products.push(data);
+        });
+      }
+    });
 }
-productID: number = 1;
+
+async getProduct(){
+  const id = this.productID;
+  const res=await fetch('http://localhost:8000/api/product/'+id);
+  const data: ProductModel = await res.json();
+  return data as ProductModel;
+}
     getProductDetail() {
     this.productDetailService.getProductDetailFun(this.productID).subscribe((response: any) => {
       //  this.productDetail = response.productDetail;

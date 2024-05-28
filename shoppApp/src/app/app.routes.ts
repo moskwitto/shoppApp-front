@@ -9,7 +9,7 @@ import { SellerComponent } from './seller/seller.component';
 import { ProductComponent } from './product-component/product.component';
 
 export const routes: Routes = [
-    { path: 'Pages/product-detail', component: ProductDetailComponent, title : 'Product Detail'},
+    { path: 'Pages/product-detail/:id', component: ProductDetailComponent, title : 'Product Detail'},
     { path: 'Pages/product-detail/:id/Cart', component: CartComponent, title : 'Cart'},
     { path: '', component: ProductComponent },
     { path: 'product', component: ProductComponent },
