@@ -1,0 +1,73 @@
+{
+  "hash": "86f58459",
+  "configHash": "1fb27b7d",
+  "lockfileHash": "593c9fc9",
+  "browserHash": "f64d5397",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "2c78a4d6",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "9f7f5fa5",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "ec52bf40",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "4f0213a4",
+      "needsInterop": false
+    },
+    "@angular/material/dialog": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/dialog.mjs",
+      "file": "@angular_material_dialog.js",
+      "fileHash": "a4a6a720",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "38f0e355",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c42fba5c",
+      "needsInterop": false
+    },
+    "rxjs/operators": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
+      "file": "rxjs_operators.js",
+      "fileHash": "f046121b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-KPNJ3IMO": {
+      "file": "chunk-KPNJ3IMO.js"
+    },
+    "chunk-SUB5T4Q2": {
+      "file": "chunk-SUB5T4Q2.js"
+    },
+    "chunk-AA7EZ4QY": {
+      "file": "chunk-AA7EZ4QY.js"
+    },
+    "chunk-AKUVGNNI": {
+      "file": "chunk-AKUVGNNI.js"
+    },
+    "chunk-V2MCY3ZS": {
+      "file": "chunk-V2MCY3ZS.js"
+    }
+  }
+}
