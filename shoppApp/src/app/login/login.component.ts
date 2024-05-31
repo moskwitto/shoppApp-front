@@ -1,7 +1,7 @@
 // src/app/login/login.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router'; 
 import { HttpClient } from '@angular/common/http'; 

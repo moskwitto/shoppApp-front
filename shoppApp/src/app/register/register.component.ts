@@ -1,11 +1,11 @@
 // src/app/register/register.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http'; 
-import { User } from '../models/user.model';  // 确保路径正确，假设你有一个User接口
+import { User } from '../models/user.model';  
 
 @Component({
   selector: 'app-register',
