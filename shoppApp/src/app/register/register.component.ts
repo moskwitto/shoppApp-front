@@ -29,7 +29,8 @@ export class RegisterComponent {
       },
       error => {
         console.error('Registration failed', error);
-        alert('Registration failed, please try again later.');
+        console.log("After trying to sign up")
+        // alert('Registration failed, please try again later.');
       }
     );
   }

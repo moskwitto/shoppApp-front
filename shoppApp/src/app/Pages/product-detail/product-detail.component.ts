@@ -18,7 +18,7 @@ export class ProductDetailComponent implements OnInit{
   constructor (private productDetailService: ProductDetailService, private route:ActivatedRoute) {}
 
   productDetail!: ProductDetailResponse[];
-  productID: number=1;
+  productID!: number;
   products: ProductModel[] = [];
  
   ngOnInit() {
