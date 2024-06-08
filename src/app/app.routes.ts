@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product-component/product.component';
 import { RegisterComponent } from './register/register.component';
 import { SellerComponent } from './seller/seller.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
