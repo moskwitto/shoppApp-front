@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductComponent } from './product-component/product.component';
 import { SellerComponent } from './seller/seller.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { SellerComponent } from './seller/seller.component';
     FooterComponent,
     ProductComponent,
     SellerComponent,
-    CheckoutComponent
+    CheckoutComponent,
   ],
   imports: [
     CommonModule,
@@ -24,10 +26,11 @@ import { SellerComponent } from './seller/seller.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'product', component: ProductComponent },
-      { path: 'seller', component: SellerComponent }
-    ])
+      { path: 'seller', component: SellerComponent },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+
+export class AppModule {}
