@@ -3,8 +3,8 @@
     <div class="col-8">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let item of items">
-          {{ item.name }} - {{ item.quantity }} - HUF {{ item.price }}
-          <button class="btn btn-danger btn-sm" (click)="remove(item.id)">
+          {{ item.productName }} - {{ item.quantity }} - {{ item.price }}
+          <button class="btn btn-danger btn-sm" (click)="remove(item.productID)">
             Remove
           </button>
         </li>
@@ -14,9 +14,9 @@
       <div class="card">
         <div class="card-header">Price Summary</div>
         <div class="card-body">
-          <p class="card-text">Items Subtotal: HUF {{ subtotal }}</p>
-          <p class="card-text">Tax (5%): HUF {{ tax }}</p>
-          <p class="card-text">Total: HUF {{ total }}</p>
+          <p class="card-text">Items Subtotal: {{ subtotal }}</p>
+          <p class="card-text">Tax (5%): {{ tax }}</p>
+          <p class="card-text">Total: {{ total }}</p>
           <button class="btn btn-primary" (click)="checkout()">Checkout</button>
         </div>
       </div>
